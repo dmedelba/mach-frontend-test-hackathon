@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Page = () => {
+function Page() {
   const [status, setStatus] = useState({});
 
   useEffect(() => {
@@ -22,6 +22,6 @@ const Page = () => {
       <p>Version: {status.version}</p>
     </div>
   );
-};
+}
 
 export default Page;
