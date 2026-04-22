@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+
 export const metadata: Metadata = {
-  title: 'MACH Race 2026',
-  description: 'ADLC Orchestrator Frontend',
+  title: 'MACHBANK – Tu Banco Digital',
+  description: 'Banca digital moderna, segura y sin complicaciones. Costo $0 mensual.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="bg-slate-950 text-slate-100 antialiased">{children}</body>
+      <body className={`${inter.variable} font-sans bg-white text-mach-dark antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
