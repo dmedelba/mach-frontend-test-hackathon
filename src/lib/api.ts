@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'; // Modificado para usar puerto 3001 del backend
 
 export async function apiFetch<T>(
   path: string,
@@ -9,7 +9,18 @@ export async function apiFetch<T>(
     ...init,
   });
   if (!res.ok) {
-    throw new Error(`API error ${res.status}: ${await res.text()}`);
+    // Mejorar el manejo de errores para proporcionar más contexto
+    const errorBody = await res.text();
+    let errorMessage = `API error ${res.status}: ${errorBody}`;
+    try {
+      const errorJson = JSON.parse(errorBody);
+      if (errorJson.error) {
+        errorMessage = `API error ${res.status}: ${errorJson.error}`;
+      }
+    } catch (parseError) {
+      // Si no es JSON, usar el texto plano
+    }
+    throw new Error(errorMessage);
   }
   return res.json() as Promise<T>;
 }
@@ -34,4 +45,23 @@ export async function resumeCycle(
     method: 'POST',
     body: JSON.stringify({ thread_id, decision }),
   });
+}
+
+// NUEVO: Funciones para el contador
+export async function getCounterValue(): Promise<{ count: number }> {
+  try {
+    return await apiFetch('/api/counter', { method: 'GET' });
+  } catch (error) {
+    console.error('Error fetching counter value:', error);
+    throw error; // Re-throw para que el componente pueda manejarlo
+  }
+}
+
+export async function incrementCounterValue(): Promise<{ newCount: number }> {
+  try {
+    return await apiFetch('/api/counter/increment', { method: 'POST' });
+  } catch (error) {
+    console.error('Error incrementing counter value:', error);
+    throw error; // Re-throw para que el componente pueda manejarlo
+  }
 }
