@@ -1,22 +1,17 @@
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import RequirementsSection from '@/components/RequirementsSection';
-import ProcessSection from '@/components/ProcessSection';
-import FormSection from '@/components/FormSection';
-import Footer from '@/components/Footer';
+import React from 'react';
 
-export default function Home() {
+function WelcomePage() {
+  const handleAbrirCuenta = () => {
+    alert('Próximamente');
+  };
+
   return (
-    <main>
-      <Header />
-      <HeroSection />
-      <FeaturesSection />
-      <RequirementsSection />
-      <ProcessSection />
-      <FormSection />
-      <Footer />
-    </main>
+    <div>
+      <h1>Bienvenido a MACHBank</h1>
+      <p>Abre una cuenta y comienza a ahorrar y invertir con nosotros</p>
+      <button onClick={handleAbrirCuenta}>Abrir cuenta</button>
+    </div>
   );
 }
 
+export default WelcomePage;
