@@ -1,20 +1,23 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import React from 'react';
+import WelcomePage from './page';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-
-export const metadata: Metadata = {
-  title: 'MACHBANK – Tu Banco Digital',
-  description: 'Banca digital moderna, segura y sin complicaciones. Costo $0 mensual.',
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+function Layout() {
   return (
-    <html lang="es">
-      <body className={`${inter.variable} font-sans bg-white text-mach-dark antialiased`}>
-        {children}
-      </body>
-    </html>
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href='#'>WelcomePage</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <WelcomePage />
+      </main>
+    </div>
   );
 }
+
+export default Layout;
