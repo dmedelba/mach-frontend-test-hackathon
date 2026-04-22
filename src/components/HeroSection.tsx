@@ -1,100 +1,47 @@
-export default function HeroSection() {
+// src/components/HeroSection.tsx
+import React from 'react';
+
+// Definir la interfaz para las props, incluyendo 'children'
+interface HeroSectionProps {
+  children?: React.ReactNode; // Permitir que HeroSection reciba children
+}
+
+// Modificar el componente para aceptar 'children'
+const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
   return (
-    <section className="bg-white overflow-hidden pt-14 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main grid: text + visual */}
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: Copy */}
-          <div className="flex flex-col gap-7">
-            {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 bg-mach-gray rounded-full px-4 py-2 w-fit">
-              <span className="w-2 h-2 rounded-full bg-mach-cyan animate-pulse" />
-              <span className="text-sm font-semibold text-mach-purple">Tu banco digital favorito de Chile</span>
-            </div>
-
-            <h1 className="text-5xl lg:text-6xl font-black leading-[1.05]">
-              <span className="text-mach-purple">Tu dinero,</span>
-              <br />
-              <span className="text-mach-dark">sin complicaciones.</span>
-            </h1>
-
-            <p className="text-lg text-mach-dark/65 max-w-md leading-relaxed">
-              Abre tu cuenta MACH gratis y empieza a disfrutar de una banca digital
-              moderna, segura y siempre disponible. Costo <strong className="text-mach-dark">$0</strong> mensual.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-1">
-              <button className="btn-primary">
-                Abre tu cuenta
-                <span className="text-mach-cyan font-black">{'>>'}</span>
-              </button>
-              <button className="btn-secondary">
-                Conoce más
-                <span className="font-black">{'>>'}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Right: Visual card mockup */}
-          <div className="relative flex justify-center items-center min-h-[360px]">
-            {/* Glow circle */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-mach-purple/10 via-mach-cyan/10 to-transparent" />
-            </div>
-
-            {/* Central card */}
-            <div className="relative z-10 w-64 bg-white rounded-3xl shadow-2xl border border-mach-offwhite p-7 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-mach-gray flex items-center justify-center text-4xl">
-                💳
-              </div>
-              <div className="text-center">
-                <div className="text-xs text-mach-dark/40 uppercase tracking-widest font-semibold mb-1">
-                  Cuenta Digital
-                </div>
-                <div className="text-3xl font-black text-mach-purple">$0</div>
-                <div className="text-sm text-mach-dark/50 font-medium">costo mensual</div>
-              </div>
-              <div className="w-full h-px bg-mach-offwhite" />
-              <div className="w-full flex justify-between text-xs text-mach-dark/50 font-medium">
-                <span>Sin comisiones</span>
-                <span className="text-mach-cyan font-bold">✓ Activo</span>
-              </div>
-            </div>
-
-            {/* Floating chip: Seguridad */}
-            <div className="absolute top-6 right-4 lg:right-0 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 border border-mach-offwhite z-20">
-              <span className="text-2xl">🔒</span>
-              <div>
-                <div className="text-xs font-bold text-mach-dark leading-tight">Seguro</div>
-                <div className="text-[10px] text-mach-dark/45">Protección 24/7</div>
-              </div>
-            </div>
-
-            {/* Floating chip: Transferencia */}
-            <div className="absolute bottom-8 left-4 lg:left-0 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 border border-mach-offwhite z-20">
-              <span className="text-2xl">⚡</span>
-              <div>
-                <div className="text-xs font-bold text-mach-dark leading-tight">Instantáneo</div>
-                <div className="text-[10px] text-mach-dark/45">Transferencias sin costo</div>
-              </div>
-            </div>
-          </div>
+    <section className="relative bg-gradient-to-br from-mach-purple to-mach-dark-purple text-white py-20 md:py-32 overflow-hidden">
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+          MACHBANK: Tu Banco Digital, Simple y Seguro
+        </h1>
+        <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up delay-100">
+          Gestiona tus finanzas desde cualquier lugar, sin complicaciones ni costos ocultos.
+        </p>
+        <div className="flex justify-center space-x-4 animate-fade-in-up delay-200">
+          <a
+            href="#"
+            className="bg-mach-green hover:bg-mach-dark-green text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+          >
+            Abrir Cuenta Ahora
+          </a>
+          <a
+            href="#"
+            className="bg-transparent border-2 border-white hover:bg-white hover:text-mach-purple text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+          >
+            Más Información
+          </a>
         </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-3 gap-6 mt-20 pt-12 border-t border-mach-gray">
-          {[
-            { value: '5M+', label: 'Usuarios activos' },
-            { value: '$0', label: 'Costo mensual' },
-            { value: '24/7', label: 'Siempre disponible' },
-          ].map(({ value, label }) => (
-            <div key={label} className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-mach-purple">{value}</div>
-              <div className="text-sm text-mach-dark/55 mt-1 font-medium">{label}</div>
-            </div>
-          ))}
-        </div>
+        {/* NUEVO: Renderizar los children aquí, permitiendo la inyección del contador */}
+        {children && <div className="mt-12">{children}</div>}
+      </div>
+      {/* Elementos de diseño de fondo */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,160L48,176C96,192,192,224,288,218.7C384,213,480,171,576,160C672,149,768,171,864,181.3C960,192,1056,192,1152,176C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
       </div>
     </section>
   );
-}
+};
+
+export default HeroSection;
