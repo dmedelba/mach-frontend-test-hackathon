@@ -25,6 +25,7 @@ npm install
 npm run dev    # desarrollo — puerto 3000
 npm run build  # build de producción
 npm start      # servidor de producción
+npm test       # tests unitarios
 ```
 
 Requiere que `mach-backend-test` esté corriendo en el puerto 3001.
@@ -42,3 +43,14 @@ docker run -p 3000:3000 mach-frontend
 |-----------------------|----------------------------|--------------------------|
 | `BACKEND_URL`         | `http://localhost:3001`    | URL del backend (SSR)    |
 | `NEXT_PUBLIC_API_URL` | `http://localhost:8000`    | URL de la API MACH       |
+
+## Testing
+
+El proyecto incluye tests unitarios con Vitest + Testing Library.
+
+```bash
+npm install
+npm test
+```
+
+La integración continua corre `npm install`, `npm run lint` y `npm test` en GitHub Actions.
