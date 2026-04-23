@@ -1,5 +1,3 @@
-
-
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
@@ -7,6 +5,7 @@ import RequirementsSection from '@/components/RequirementsSection';
 import ProcessSection from '@/components/ProcessSection';
 import FormSection from '@/components/FormSection';
 import Footer from '@/components/Footer';
+import TipCard from '@/components/TipCard';
 
 export default function Home() {
   return (
@@ -16,9 +15,9 @@ export default function Home() {
       <FeaturesSection />
       <RequirementsSection />
       <ProcessSection />
+      <TipCard />
       <FormSection />
       <Footer />
     </main>
   );
 }
-
