@@ -1,3 +1,5 @@
+'use client';
+
 const REQUIREMENTS = [
   { label: 'Edad:', desc: 'Ser mayor de 18 años' },
   { label: 'RUT:', desc: 'Contar con RUT chileno vigente' },

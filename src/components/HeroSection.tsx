@@ -1,3 +1,5 @@
+'use client';
+
 export default function HeroSection() {
   return (
     <section className="bg-white overflow-hidden pt-14 pb-20">

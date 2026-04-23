@@ -1,3 +1,4 @@
+'use client';
 const FOOTER_LINKS = {
   Productos: ['Cuenta Digital', 'Tarjeta MACH', 'Crédito MACH', 'Transferencias', 'Beneficios'],
   Empresa: ['Conócenos', 'Blog', 'Trabaja con nosotros', 'Prensa', 'Sostenibilidad'],
