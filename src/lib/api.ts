@@ -35,3 +35,10 @@ export async function resumeCycle(
     body: JSON.stringify({ thread_id, decision }),
   });
 }
+
+export async function revealTip(userId: string): Promise<{ tip: string }> {
+  return apiFetch('/api/tips/reveal', {
+    method: 'POST',
+    body: JSON.stringify({ userId }),
+  });
+}
